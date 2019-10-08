@@ -44,30 +44,27 @@ void loadTable(Videogame gl[], int n, int *max, int x){
     if(fp!=NULL){
         while(k<n && fgets(appg, x, fp)!=NULL){
            buffer = strtok(appg , ",");
-            while(appg != NULL){
-                buffer=strtok(NULL, ",");
-                gl[k].rank = atoi(buffer);
-                buffer=strtok(NULL, ",");
-                gl[k].name = buffer;
-                buffer=strtok(NULL, ",");
-                gl[k].platform = buffer;
-                buffer=strtok(NULL, ",");
-                gl[k].year = atoi(buffer);
-                buffer=strtok(NULL, ",");
-                gl[k].genre= buffer;
-                buffer=strtok(NULL, ",");
-                gl[k].publisher = buffer;
-                buffer=strtok(NULL, ",");
-                gl[k].na_sales = atof(buffer);
-                buffer=strtok(NULL, ",");
-                gl[k].eu_sales = atof(buffer);
-                buffer=strtok(NULL, ",");
-                gl[k].jp_sales = atof(buffer);
-                buffer=strtok(NULL, ",");
-                gl[k].other_sales = atof(buffer);
-                buffer=strtok(NULL, ",");
-                gl[k].global_sales = atof(buffer);
-            } 
+            gl[k].rank = atoi(buffer);
+            buffer=strtok(NULL, ",");
+            gl[k].name = buffer;
+            buffer=strtok(NULL, ",");
+            gl[k].platform = buffer;
+            buffer=strtok(NULL, ",");
+            gl[k].year = atoi(buffer);
+            buffer=strtok(NULL, ",");
+            gl[k].genre= buffer;
+            buffer=strtok(NULL, ",");
+            gl[k].publisher = buffer;
+            buffer=strtok(NULL, ",");
+            gl[k].na_sales = atof(buffer);
+            buffer=strtok(NULL, ",");
+            gl[k].eu_sales = atof(buffer);
+            buffer=strtok(NULL, ",");
+            gl[k].jp_sales = atof(buffer);
+            buffer=strtok(NULL, ",");
+            gl[k].other_sales = atof(buffer);
+            buffer=strtok(NULL, ",");
+            gl[k].global_sales = atof(buffer);
 
         k++;
         }
