@@ -23,8 +23,8 @@ int main()
     }
 
     for(i=0;i<dim;i++){
-        if(*vett < *(vett+i)){
-            *vett = *(vett+i);
+        if(*vett < *(vett+i)){      //confronta il contenuto della prima cella con quelle succesive 
+            *vett = *(vett+i);      //se il contenuto è maggiore viene spostato nella prima cella
         }
     }
 
