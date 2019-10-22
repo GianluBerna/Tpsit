@@ -16,7 +16,7 @@ es01
 
 typedef struct videogame{
     int rank;
-    char* name;
+    char* name;         //dichiarazione di un puntatore a grandezza da definire
     char* platform;
     int year;
     char* genre;
@@ -43,10 +43,12 @@ void loadTable(Videogame gl[], int n, int *max, int x){
 
     if(fp!=NULL){
         while(k<n && fgets(appg, x, fp)!=NULL){
-           buffer = strtok(appg , ",");
-            gl[k].rank = atoi(buffer);
+           buffer =strtok(appg , ",");              //divisione della stringa grande in pezzi più piccoli
+            gl[k].rank = atoi(buffer);              //atoi : trasforma la stringa in un intero
             buffer=strtok(NULL, ",");
-            gl[k].name = malloc((strlen(buffer)+1)*sizeof(char));
+            gl[k].name = malloc((strlen(buffer)+1)*sizeof(char));       //malloc : alloca la memoria del puntatore inserito 
+                                                                        //strlen : lunghezza della stringa
+                                                                        //sizeof : lunghezza del tipo di variabile
             strcpy(gl[k].name , buffer);
             buffer=strtok(NULL, ",");
             gl[k].platform = malloc((strlen(buffer)+1)*sizeof(char));
@@ -60,7 +62,7 @@ void loadTable(Videogame gl[], int n, int *max, int x){
             gl[k].publisher = malloc((strlen(buffer)+1)*sizeof(char));
             strcpy(gl[k].publisher , buffer);
             buffer=strtok(NULL, ",");
-            gl[k].na_sales = atof(buffer);
+            gl[k].na_sales = atof(buffer);          //atof : trasforma la stringa in un float
             buffer=strtok(NULL, ",");
             gl[k].eu_sales = atof(buffer);
             buffer=strtok(NULL, ",");

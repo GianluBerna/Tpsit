@@ -10,11 +10,11 @@ int main()
     int dim;
     printf("Inserire la dimensione : ");
     scanf("%d", &dim);
-    int *vett = malloc((dim)*sizeof(int));
+    int *vett = malloc((dim)*sizeof(int));      //malloc : alloca la memoria del puntatore inserito 
     int i;
     for(i=0;i<dim;i++){
         printf("Inserire il numero [%d] : ", i);
-        scanf("%d", vett+i);
+        scanf("%d", vett+i);                    //come fare &vett[i]
     }
 
     for(i=0;i<dim;i++){
