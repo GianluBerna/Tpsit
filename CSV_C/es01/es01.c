@@ -30,6 +30,18 @@ typedef struct videogame{
 
 }Videogame;
 
+void loadTable(Videogame gl[], int n, int *max, int x);
+
+int main(){
+
+    Videogame gameList[G];
+    int n;
+    loadTable(gameList, G , &n, DIM);
+
+    return 0;
+}
+
+
 void loadTable(Videogame gl[], int n, int *max, int x){
     FILE *fp;
     int k=0;
@@ -85,13 +97,4 @@ void loadTable(Videogame gl[], int n, int *max, int x){
         printf("%d %s %s %d %s %s %.2f %.2f %.2f %.2f %.2f\n", gl[k].rank, gl[k].name, gl[k].platform, gl[k].year, gl[k].genre, gl[k].publisher, gl[k].na_sales, gl[k].eu_sales, gl[k].jp_sales, gl[k].other_sales, gl[k].global_sales);
     }
     fclose(fp);
-}
-
-int main(){
-
-    Videogame gameList[G];
-    int n;
-    loadTable(gameList, G , &n, DIM);
-
-    return 0;
 }
