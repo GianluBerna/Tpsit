@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,8 +8,7 @@ struct El{
 };
 
 void stampaLista(struct El* l);
-int lunghezzaCiclo(struct El* l);
-int lunghezzaRicorsiva(struct El* l);
+void ordinaRipplesort(struct El* l);
 
 int main(int argc, char const *argv[]){
     /* code */
@@ -40,21 +40,16 @@ int main(int argc, char const *argv[]){
         }
     } while (n>=0);
 
-    l=lista;    //assegno ad l il puntore al primo elemento della lista
-    printf("numeri inseriti: \n");
+    l = lista;
+    stampaLista(l);
 
-    while (l!=NULL){
-        /* code */
-        printf("%d - %p \n",l->valore, l->next);
-        l = l->next;    //il puntatore corrente è assegnato al puntatore all'elemento successivo
-    }
+    l = lista;
+    ordinaRipplesort(l);
 
-    printf("\n");
+    printf("\n\n");
+
     stampaLista(lista);
-    //lunghezza
-    
-    printf("\n\nDimensione con ciclo while: %d", lunghezzaCiclo(lista));
-    printf("\n\nDimensione con funzione ricorsiva: %d\n\n", lunghezzaRicorsiva(lista));
+       
     return 0;
 }
 
@@ -67,23 +62,21 @@ void stampaLista(struct El* l){
     }else{
         /* code */
         printf("%d - %p \n",l->valore, l->next);
+        return;
     }
 }
 
-int lunghezzaCiclo(struct El* l){
-    int c = 0;
-    while (l!=NULL){
-        /* code */
-        l = l->next;
-        c++;
-    }
-    return c;
-}
-
-int lunghezzaRicorsiva(struct El* l){
-    if (l->next == NULL){
-        return 1;
-    } else {
-        return 1 + lunghezzaRicorsiva(l->next);
+void ordinaRipplesort(struct El* l) {
+    struct El* lista = l;
+    int x;
+    while (l->next != NULL){
+        if ((l->valore) > (l->next->valore)) {
+            x = l->next->valore;
+            l->next->valore = l->valore;
+            l->valore = x;
+            l = lista;
+        }else{
+            l = l->next;
+        }
     }
 }
