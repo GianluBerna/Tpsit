@@ -42,7 +42,7 @@
 pthread_mutex_t m1, m2 = PTHREAD_MUTEX_INITIALIZER;
 int biglietti = 100;
 int p1 = 10;
-int p2 = 8;
+int p2 = 10;
 
 
 void *cassa1(void *arg){
